@@ -1,70 +1,103 @@
-# Getting Started with Create React App
+# Weather Frontend Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a React application that displays weather information based on an address entered by the user. It communicates with a backend API to fetch weather data.
 
-## Available Scripts
+## Prerequisites
 
-In the project directory, you can run:
+* **Node.js:** Ensure Node.js (version 23.7.0 or later) is installed on your system.
+* **npm or Yarn:** You'll need npm (Node Package Manager) or Yarn to manage dependencies.
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1.  **Clone the Repository:**
+    ```bash
+    git clone https://github.com/AnandTati/weather-app.git
+    cd <frontend_project_directory>/frontend/
+    ```
+2.  **Install Dependencies:**
+    * Using npm:
+        ```bash
+        npm install
+        ```
+    * Using Yarn:
+        ```bash
+        yarn install
+        ```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Running the Application
 
-### `npm test`
+1.  **Start the Development Server:**
+    * Using npm:
+        ```bash
+        npm start
+        ```
+    * Using Yarn:
+        ```bash
+        yarn start
+        ```
+2.  **Open the Application:**
+    * The application will open in your default browser at `http://localhost:3000`.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Application Details
 
-### `npm run build`
+* **Component:** `Weather.js`
+    * This is the main component that handles user input, API calls, and displaying weather data.
+    * It uses `axios` to make HTTP requests to the backend API.
+    * It manages state for the address, weather data, errors, and loading status.
+* **API Interaction:**
+    * The application makes a GET request to `http://localhost:8080/weather` with the address as a query parameter.
+    * It displays weather data in a table format upon successful API response.
+    * It displays error messages when API call fails.
+* **Styling:**
+    * Uses bootstrap classes for styling.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Usage
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1.  **Enter an Address:** Type an address into the input field.
+2.  **Get Weather:** Click the "Get Weather" button.
+3.  **View Weather Data:** The weather information will be displayed in a table if the address is valid.
+4.  **Error Handling:** If there's an error (e.g., invalid address, API failure), an error message will be displayed.
+5.  **Loading State:** A "Loading..." message is shown while the API request is in progress.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Error Handling
 
-### `npm run eject`
+* **400 Bad Request:** "Invalid address provided."
+* **404 Not Found:** "Address not found or ambigious address or invalid address."
+* **Other Errors:** "An error occurred while fetching weather data." or "Network error or server is down."
+* Error messages are displayed in red text below the form.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Deployment
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* **Build the Application:**
+    * Using npm:
+        ```bash
+        npm run build
+        ```
+    * Using Yarn:
+        ```bash
+        yarn build
+        ```
+    * This will create a `build` directory containing the production-ready application.
+* **Serve the Build:**
+    * You can use a static file server (e.g., `serve`, Nginx) to serve the contents of the `build` directory.
+    * Example using `serve`:
+        ```bash
+        npm install -g serve
+        serve -s build
+        ```
+    * Deploy the contents of the `build` folder to your preferred hosting platform.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Backend API Dependency
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+* This frontend application depends on a backend API running at `http://localhost:8080/weather`.
+* Ensure the backend API is running before using the frontend application.
+* The backend API must be configured to allow CORS requests from `http://localhost:3000`.
 
-## Learn More
+## Notes
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* This application uses `axios` for making HTTP requests.
+* Basic error handling is implemented to display user-friendly error messages.
+* The application assumes the backend API returns weather data in a specific JSON format.
+* The weather data is displayed in a table format.
+* This application does not contain unit tests.
+* This application contains only one component.
