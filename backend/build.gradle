@@ -30,6 +30,7 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-logging'
 	implementation 'org.json:json:20250107'
 	implementation 'com.google.guava:guava:33.4.0-jre'
 
