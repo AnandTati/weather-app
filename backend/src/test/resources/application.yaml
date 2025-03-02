@@ -1,0 +1,6 @@
+address-service:
+  api-key: testApiKey
+
+weather-service:
+  api-key: testApiKey
+  cache-expiry-seconds: 3

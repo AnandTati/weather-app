@@ -1,0 +1,12 @@
+
+spring:
+  application:
+    name: weatherapp
+
+  
+address-service:
+  api-key: ${ADDRESS_SERVICE_API_KEY}
+
+weather-service:
+  api-key: ${WEATHER_SERVICE_API_KEY}
+  cache-expiry-seconds: 5
